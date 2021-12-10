@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dept">
+
+	<select id="deptList" resultType="Dept.VO.DeptVO">
+		select * from dept
+	</select>
+	
+	<select id="deptOne" resultType="Dept.VO.DeptVO" parameterType="int">
+		select * from dept where deptno = #{deptno}
+	</select>
+	
+	<insert id="deptInsert" parameterType="Dept.VO.DeptVO">
+		insert into dept (deptno, dname, loc) values(#{deptno},#{dname}, #{loc})
+	</insert>
+	
+	<update id="deptUpdate" parameterType="Dept.VO.DeptVO">
+		update dept set dname = #{dname} , loc = #{loc} where deptno = #{deptno}
+	</update>
+	
+	<delete id="depDelete" parameterType="int">
+		delete from dept where deptno = #{deptno}
+	</delete>
+	
+	<select id="deptMax" resultType="int">
+		select max(deptno) from dept
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

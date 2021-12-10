@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+	<!-- 스프링에서 사용할 객체를 설정하는 파일 -->
+	
+	<!-- PersonDTO p1 = new PersonDTO() -->
+	<bean id="p1" class="dto.PersonDTO" scope="singleton">
+		<!-- setter 인젝션 -->
+		<property name="name" value="김민준"/>
+		<property name="age" value="20"/>
+		<property name="tel" value="010-3666-6768"/>
+	</bean>
+	
+	<!-- 
+		Scope 타입은 기본값이 singleton으로 설정되어있다.
+		요청시마다 생성하게 하려면 scope를 prototype으로 설정하면 된다.
+		session, request는 잘 안먹어서 잘 안쓴다. -> 의도대로 잘 안된다.
+	 -->
+	
+	<bean id="p2" class="dto.PersonDTO">
+		<!-- 생성자(Constructor) 인젝션 -->
+		<constructor-arg value="홍길동"/>
+		<constructor-arg value="30"/>
+		<constructor-arg value="010-3333-5555"/>
+	</bean>
+	
+    <bean id="nameBean" class="java.lang.String">
+            <constructor-arg value="박길동"/>
+    </bean>
+    
+    <bean id="ageBean" class="java.lang.Integer">
+            <constructor-arg value="33"/>
+    </bean>
+    
+    <bean id="telBean" class="java.lang.String">
+            <constructor-arg value="010-1234-1234"/>
+    </bean>
+    
+    <bean id="p3" class="dto.PersonDTO">
+            <property name="name" ref="nameBean"/>
+            <property name="age" ref="ageBean"/>
+            <property name="tel" ref="telBean"/>
+    </bean>
+    
+    <bean id="p4" class="dto.PersonDTO">
+            <constructor-arg ref="nameBean"/>
+            <constructor-arg ref="ageBean"/>
+            <constructor-arg ref="telBean"/>
+    </bean>
+	
+</beans>

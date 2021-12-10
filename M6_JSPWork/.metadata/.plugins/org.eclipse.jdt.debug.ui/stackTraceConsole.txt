@@ -1,0 +1,18 @@
+String webPath = "/resources/upload";
+		String savePath = application.getRealPath(webPath);
+		
+		MultipartFile photo = boardVO.getPhoto();
+		String filename = "no_file";
+		
+		if(!photo.isEmpty()) {
+			filename = photo.getOriginalFilename();
+			File saveFile = new File(savePath, filename);
+			
+			if(!saveFile.exists()) {
+				saveFile.mkdirs();
+			} else {
+				filename = String.format("%d_%s", System.currentTimeMillis(), filename);
+				saveFile = new File(savePath, filename);
+			}
+			photo.transferTo(saveFile);
+		}

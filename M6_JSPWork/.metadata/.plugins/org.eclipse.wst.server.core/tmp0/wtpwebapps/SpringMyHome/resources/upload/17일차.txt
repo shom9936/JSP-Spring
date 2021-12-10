@@ -1,0 +1,19 @@
+sqldeveloper
+
+	다운로드 주소 : https://www.oracle.com/tools/downloads/sqldev-downloads.html	
+	-> 주소 누르고 첫번째 것 다운로드
+	-> Windows 64-bit with JDK 8 included
+
+	- db 접속에서 작업하기 위한 도구 cf. toad
+
+
+CRUD
+	Create
+	Read
+	Update
+	Delete
+
+database
+
+	table의 집합
+		: 시간에 흐름에 따라 CRUD가 발생하는 표

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+	<select id="selectList" resultType="vo.BoardVO" parameterType="vo.ListVO">
+		select seq,id,name,title,content,filename,hit,logtime,comment_cnt,recomment_cnt,decomment_cnt
+		from (select rownum rn, tt.* 
+		from (select * from board order by seq desc) tt) 
+		where rn between #{start} and #{end}
+	</select>
+	
+	<select id="selectOne" resultType="vo.BoardVO" parameterType="int">
+		select * from board where seq = #{seq}
+	</select>
+	
+	<select id="selectCount" resultType="int">
+		select count(*) from board
+	</select>
+	
+	<insert id="boardWrite" parameterType="vo.BoardVO">
+		insert into board values(seq_board.nextval, #{id}, #{name}, #{title}, #{content}, #{filename}, 0, sysdate, default, default, default)
+	</insert>
+	
+	<update id="boardModify" parameterType="vo.BoardVO">
+		update board set title = #{title}, content = #{content}, filename = #{filename} where seq = #{seq}
+	</update>
+	
+	<update id="updateHit" parameterType="int">
+		update board set hit = hit+1 where seq = #{seq}
+	</update>
+	
+	<update id="updatePlusComment" parameterType="int">
+		update board set comment_cnt = comment_cnt + 1 where seq = #{seq}
+	</update>
+	
+	<update id="updateMinusComment" parameterType="int">
+		update board set comment_cnt = comment_cnt - 1 where seq = #{seq}
+	</update>
+	
+	<update id="updateRecomment" parameterType="int">
+		update board set recomment_cnt = recomment_cnt+1 where seq = #{seq}
+	</update>
+	
+	<update id="updateDecomment" parameterType="int">
+		update board set decomment_cnt = decomment_cnt+1 where seq = #{seq}
+	</update>
+
+	<delete id="boardDelete" parameterType="int">
+		delete from board where seq = #{seq}
+	</delete>
+	
+	<select id="selectRecomment" parameterType="vo.BoardRecommendVO" resultType="vo.BoardRecommendVO">
+		select * from board_recommend where board_no = #{board_no} and id = #{id}
+	</select>
+	
+	<insert id="insertRecomment" parameterType="vo.BoardRecommendVO">
+		insert into board_recommend values(seq_board_re.nextval, #{id}, #{board_no}, #{up_down})
+	</insert>
+	
+	<select id="selectPopular" resultType="vo.BoardVO">
+		select seq,id,name,title,content,filename,hit,logtime,comment_cnt,recomment_cnt,decomment_cnt 
+		from ( select rownum rn, tt.* from (select * from board ORDER BY recomment_cnt desc) tt  ) where (rn between 0 and 10) and comment_cnt != 0		
+	</select>
+</mapper>

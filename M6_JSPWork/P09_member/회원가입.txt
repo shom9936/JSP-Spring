@@ -1,0 +1,17 @@
+
+1. DB
+-- member 테이블
+
+create table member(
+name varchar2(30) not null,
+id varchar2(20) primary key,
+pwd varchar2(30) not null,
+gender varchar2(3),
+email varchar2(20),
+domain varchar2(20),
+tel varchar2(13),
+addr varchar2(100),
+logtime date
+);
+
+2. 회원가입 페이지

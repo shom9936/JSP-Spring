@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comment">
+	<select id="commentSelect" parameterType="int" resultType="vo.CommentVO">
+		select * from board_comment where board_no = #{seq} order by seq
+	</select>
+	
+	<insert id="commentInsert" parameterType="vo.CommentVO">
+		insert into board_comment values(#{board_no}, #{id}, seq_comment.nextval, #{content}, sysdate, default)
+	</insert>
+	
+	<delete id="commentDelete" parameterType="int">
+		delete from board_comment where seq = #{seq}
+	</delete>
+	
+	<update id="commentUp" parameterType="int">
+		update board_comment set recomment = recomment + 1 where seq = #{seq}
+	</update>
+	
+	<update id="commentDown" parameterType="int">
+		update board_comment set recomment = recomment - 1 where seq = #{seq}
+	</update>
+	
+	<select id="commentReSelect" parameterType="vo.CommentRecommendVO" resultType="vo.CommentRecommendVO">
+		select * from comment_recommend where id = #{id} and comment_no = #{comment_no}
+	</select>
+	
+	<insert id="commentReInsert" parameterType="vo.CommentRecommendVO">
+		insert into comment_recommend values(seq_recommend.nextval, #{id}, #{comment_no}, #{up_down})
+	</insert>
+</mapper>

@@ -1,0 +1,66 @@
+class ThreadSend extends Thread { // 전송을 위한 쓰레드 클래스
+	
+	Socket s1;//from Client
+	DataOutputStream dos1;
+	String what1;//채팅시 맨앞에 나올 문자열 (예) 미팅중===> 
+	
+	
+	ThreadSend(Socket s1) throws IOException {//생성자 
+		this.s1 = s1;//s1받아서 s1필드에 넣기 
+    	this.dos1 = new DataOutputStream(s1.getOutputStream());
+		                       // send를 위한 i/o 스트림 
+    	this.what1 = "미팅중==>"; //대화시 앞에 항상 붙는 단어
+    }
+	
+	public void run() { // 쓰레드 동작시 실행되는 메소드
+		Scanner sc1 = new Scanner(System.in); // Scanner를 통해 채팅 입력 
+		while (dos1 != null) { // outputStream이 연결됐다면
+			try { 
+				dos1.writeUTF(what1 + sc1.nextLine()); // send
+				//io 스트림을 통해 상대에게 chat 보내기
+			   } catch (IOException e) {
+				//e.printStackTrace();
+			}
+		}
+	}
+}
+
+class ThreadRcv extends Thread { // 전송된 메시지를 받기 위한 쓰레드 클래스
+	Socket s1;
+	DataInputStream dis1;
+	ThreadRcv(Socket s1) throws IOException {
+		this.s1 = s1;
+		dis1 = new DataInputStream(s1.getInputStream()); // read 
+	}
+	public void run() { // 쓰레드 동작시 실행되는 메소드
+		while (dis1 != null) {
+			try {
+				System.out.println(dis1.readUTF());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+public class TcpServer {
+	public static void main(String args[]) throws IOException {
+		 if(args.length !=1) {
+        	 System.out.println("사용법은 java 파일명 포트번호");
+        	 System.exit(1);
+         }  
+		ServerSocket ss1= new ServerSocket(Integer.parseInt(args[0]));
+		// 인자값으로 포트번호를 입력받아 연결
+		System.out.println("서버 잘 준비됨 ...");
+		
+		while (true) {
+			System.out.println("미팅 대화 기다리는 중....");
+			Socket s1 = ss1.accept(); // 클라이언트를 기다리고 있다가 클라이언트와 연결이 되면 소켓객체를 리턴받아 연결
+			
+			ThreadSend tsendSer1 = new ThreadSend(s1);// 전송을 위한 쓰레드 객체 생성
+			ThreadRcv trcvSer1 = new ThreadRcv(s1);/// 전송된 메시지를 받기 위한 쓰레드 객체 생성
+			tsendSer1.start(); // Thread 실행
+			trcvSer1.start(); // Thread 실행
+		}
+	}
+}

@@ -1,0 +1,41 @@
+
+<!-- ex08_check-box.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>check box , radio</title>
+</head>
+<body>
+<!-- 
+	# input type checkbox
+	  - 하나의 name에 value값만 다르게 구성해서 여러개를 선택할 수 있습니다.
+	  
+	# input type radio
+	  - 하나의 그룹에 radio 버튼 하나만 선택할  수 있습니다.
+ -->
+ 	<h1> checkbox , radio</h1>
+ 	<br>
+ 	<form action = "#">
+	 	<fieldset>
+	 		<legend> 취미 선택</legend>
+		 	<input type="checkbox" id="hobby1" name="hobby" value="축구">
+		 	<label for="hobby1"> 축구</label>
+		 	<input type="checkbox" id="hobby2" name="hobby" value="야구">
+		 	<label for="hobby2"> 야구</label>
+		 	<input type="checkbox" id="hobby3" name="hobby" value="농구">
+		 	<label for="hobby3"> 농구</label>
+ 		</fieldset>
+ 		<fieldset>
+ 			<legend> 선택</legend>
+ 			<input type="radio" id="start_y" name="start" value="y">
+ 			<label for="start_y"> 예</label>
+ 			<input type="radio" id="start_n" name="start" value="n" checked>
+ 			<label for="start_y"> 아니오</label>
+ 		</fieldset>
+ 	</form>
+ 	<br>
+ 	<input type="submit" value="보내기">
+</body>
+</html>

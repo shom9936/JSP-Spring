@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<bean id="mySetBean" class="ex.MySet">
+		<property name="set">
+			<!-- new HashSet() -->
+			<set>
+				<!-- set.add("서울") -->
+				<value>서울</value>
+				<value>대전</value>
+				<value>대구</value>
+				<value>부산</value>
+			</set>
+		</property>
+	</bean>
+	
+	<bean id="myListBean" class="ex.MyList">
+		<property name="list">
+			<!-- new ArrayList() -->
+			<set>
+				<!-- list.add("서울") -->
+				<value>서울</value>
+				<value>대전</value>
+				<value>대구</value>
+				<value>부산</value>
+			</set>
+		</property>
+	</bean>
+	
+	<bean id="myMapBean" class="ex.MyMap">
+		<property name="map">
+			<!-- new HashMap() -->
+			<map>
+				<!-- map.put("hong", 1111) -->
+				<entry key="hong" value="1111"/>
+				<entry key="kim" value="2222"/>
+				<entry key="park" value="3333"/>
+				<entry key="lee" value="4444"/>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- MyProb객체 생성하기 -->
+	<!-- Properties는 DB 연동을 위한 정보를 저장하는 클래스
+		 - 맵과 비슷하게 Key와 Value를 통해 저장을 하지만, 구조는 다르다.
+	 -->
+	 <bean id="myPropBean" class="ex.MyProp">
+	 	<!-- new Properties(); -->
+	 	<property name="prop">
+		 	<props>
+		 		<!-- prop.put("user", "test"); -->
+		 		<prop key="driver">oracle.jdbc.driver.OracleDriver</prop>
+		 		<prop key="url">jdbc:oracle:thin:@localhost:1521:xe</prop>
+		 		<prop key="user">dbtest</prop>
+		 		<prop key="pwd">a1111</prop>
+		 	</props>
+	 	</property>
+	 </bean>
+	 
+</beans>

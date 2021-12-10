@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;tft_op.png&apos; to &apos;img&apos;&#x0D;&#x0A;- Original project: &apos;SpringMyHome&apos;&#x0D;&#x0A;- Destination element: &apos;img&apos;&#x0D;&#x0A;- Original element: &apos;tft_op.png&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" element1="src/main/webapp/resources/css/tft_op.png" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1634373126828" target="src/main/webapp/resources/img" units="0" version="1.0"/>
+</session>

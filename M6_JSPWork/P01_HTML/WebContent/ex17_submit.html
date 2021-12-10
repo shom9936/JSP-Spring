@@ -1,0 +1,29 @@
+
+<!-- ex17_submit.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>전송</title>
+<script type = "text/javascript">
+function testClick(){
+	var name = document.getElementById("username");
+	if(name.value == ""){
+		alert("이름을 입력하세요!!");
+	}
+}
+</script>
+</head>
+<body>
+	<h1> 보내기 </h1>
+	<br>
+	<form action = "ex17_result.html" name="formTest" method = "get">
+		<label> 이름 : </label>
+		<input type="text" id="username" name = "username">
+		<br><br>
+		<input type="submit" value = "입력완료"> &nbsp; <input type="reset" value = "다시작성">
+		<input type="button" value = "입력확인" onclick="testClick()">
+	</form>
+</body>
+</html>

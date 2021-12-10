@@ -1,0 +1,17 @@
+< JSTL.txt >
+
+# JSTL ( JSP Standard Tag Library : 표준 태그 라이브러리 )
+- 커스텀 태그 중 가장 많이 사용되는 태그를 표준화하여 라이브러리로 제공합니다.
+
+# JSTL 라이브러리 다운로드
+- http://tomcat.apache.org/download-taglibs.cgi
+  > Impl	: taglibs-standard-impl-1.2.5.jar (pgp, sha512)
+	Spec	: taglibs-standard-spec-1.2.5.jar (pgp, sha512)
+	EL		: taglibs-standard-jstlel-1.2.5.jar (pgp, sha512)
+	Compat	: aglibs-standard-compat-1.2.5.jar (pgp, sha512)
+
+# Core 태그 라이브러리 기능
+- 자바로 구현한 변수선언, 조건식, 반복문의 기능 등을 태그로 대체할 수 있습니다.
+- 사용 전 반드시 taglib 디렉티브 태그를 선언해야 합니다.
+  <%@ taglib prefix="c" url="http://java.sun.com/jsp/jstl/core" %>
+  

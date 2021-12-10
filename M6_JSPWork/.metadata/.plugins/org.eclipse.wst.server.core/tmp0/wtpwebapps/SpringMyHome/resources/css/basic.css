@@ -1,0 +1,436 @@
+@charset "UTF-8";
+
+/*
+	.스타일명 - class를 통해서 설정
+	#스타일명 - id를 통해서 설정
+	태그명 - 태그의 기본 디폴트 설정..
+		
+*/
+
+/* * {
+	margin: 0px;
+	padding: 0px;
+} */
+
+a{
+	text-decoration: none;
+}
+body {
+   height: 100vh;
+   background-image: url('../img/tft_op.png');
+   background-repeat : repeat-y;
+   background-size : cover;
+}
+
+/* 배경사진 넣을 때  */
+/* body {
+	position: relative;
+	z-index: 1;
+}
+
+body:after {
+	background-image: url('../img/tft.jpg');
+	top: 0;
+    	left: 0;
+    	position: absolute;
+	
+	background-size: cover;
+	background-repeat : no-repeat;
+	opacity:0.5!important;
+    	filter:alpha(opacity=50);
+    	z-index:-1;
+    	content:"";
+    
+    	width : 100%;
+    	height: 100vh;
+   
+} */
+
+.button_1 {
+	border : 0;
+	outline : none;
+}
+
+button {
+	border : 0;
+	background-color : #ffffff;
+}
+
+ul {
+	background-color : #16537e;
+	list-style-type : none;
+	margin : 0;
+	padding : 0;
+	overflow: hidden;
+	margin-left: 10%;
+	margin-right: 10%;
+	border-radius: 5px;
+}
+
+li{
+	float: left;
+	border-right: solid 1px gray;
+	width: 120px;
+	text-align: center;
+	
+}
+
+li a {
+	display: block;
+	color : white;
+	padding : 8px;
+	text-decoration: none;
+	font-weight: bold;
+	font-family : "맑은 고딕";
+}
+
+li a.current {
+	background: #FF6347;
+	color : white;
+}
+
+li a:hover:not(.current) {
+	background-color: #CD853F;
+	color : white;
+}
+
+.header{
+	margin-top: 0;
+	margin-left: 10%;
+	margin-right: 10%;
+	padding : 10px;
+	padding-top: 1px;
+	/* display: flex; */
+	text-align : left;
+	position: relative;
+}
+
+.login{
+	margin-right : 10%;
+	position: absolute;
+	top: 40px;
+	right: 75px;
+	background-color: #2986cc;
+	border : none;
+	border-radius: 5px;
+	box-shadow : none;
+	color : white;
+	font-size: 8px;
+	font-family : "맑은 고딕";
+	font-weight : bold;
+	padding: 6px 15px;
+}
+
+.logout{
+	margin-right : 10%;
+	position: absolute;
+	top: 40px;
+	right: 75px;
+	background-color: #e45252;
+	border : none;
+	border-radius: 5px;
+	box-shadow : none;
+	color : white;
+	font-size: 8px;
+	font-family : "맑은 고딕";
+	font-weight : bold;
+	padding: 6px 15px;
+}
+
+button:hover {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.join{
+	margin-right : 10%;
+	position: absolute;
+	top: 40px;
+	right: 0px;
+	background-color: #2986cc;
+	border : none;
+	border-radius: 5px;
+	box-shadow : none;
+	color : white;
+	font-size: 8px;
+	font-family : "맑은 고딕";
+	font-weight : bold;
+	padding: 6px 15px;
+}
+
+.myPage{
+	margin-right : 10%;
+	position: absolute;
+	top: 40px;
+	right: 0px;
+	background-color: #2986cc;
+	border : none;
+	border-radius: 5px;
+	box-shadow : none;
+	color : white;
+	font-size: 8px;
+	font-family : "맑은 고딕";
+	font-weight : bold;
+	padding: 6px 15px;
+}
+
+.mainTitle > h1 {
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+/* #footer{
+	border: 1px solid black;
+	width: 600px;
+	height: 40px;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 12px;
+	background: #ccccff;
+} */
+
+.footer p{
+	text-align: right;
+	font-family: "맑은 고딕";
+	font-size: small;
+	margin : 1px;
+}
+
+.footer{
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.main{
+	margin-left: 10%;
+	margin-right: 10%;
+	min-height: 400px;
+	padding: 15px 5px;
+}
+
+.ckid {
+	float: left;
+}
+
+.write{
+	border-collapse: collapse;
+}
+
+.write th{
+	background-color: #bcbcbc;
+	width : 50px;
+}
+
+.blank{
+	border : none;
+	background-color: transparent;
+	padding: 10px;
+}
+
+.write thead{
+	border: 1px solid #bcbcbc;
+	padding: 0;
+}
+
+.thead input{
+	width : 98%;
+	height : 100%;
+	border: none;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	padding-right: 7px;
+}
+
+.write_tbody, .write_tfoot{
+	border: 1px solid #bcbcbc;
+}
+
+.write_tbody textarea{
+	border: none;
+}
+
+.complite{
+	background-color: #2986cc;
+	border : none;
+	border-radius: 5px;
+	box-shadow : none;
+	color : white;
+	font-size: 12px;
+	font-weight : bold;
+	height : 30px;
+	width : 90px;
+}
+
+.list{
+	border-collapse: collapse;
+	text-align: center;
+	font-size: 10pt;
+	margin-bottom: 10px;
+}
+
+.list th{
+	background-color: #bcbcbc;
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+	font-weight: bold;
+	
+}
+
+.list td {
+	border-bottom: 1px solid #999999;
+}
+
+.list td, th {
+	padding: 7px;
+}
+
+.no{
+	width : 100px;
+}
+
+.title{
+	width : 400px;
+	text-align: left;
+}
+
+.name{
+	width : 100px;
+}
+
+.logdate{
+	width : 100px;
+}
+
+.hit{
+	width : 50px;
+}
+
+.recomment {
+	width : 50px;
+}
+
+.list_write{
+	background-color: #2986cc;
+	border : none;
+	border-radius: 5px;
+	box-shadow : none;
+	color : white;
+	font-size: 8px;
+	font-weight : bold;
+	padding: 6px 15px;
+}
+
+.boardWriterInfo{
+	font-size: 10pt;
+	float : right;
+	padding-top: 10px;
+}
+
+.boardTitle{
+	float : left;
+	font-weight: bold;
+	font-size: 15pt;
+}
+
+.boardView{
+	width : 700px;
+	text-align: center;
+}
+
+.boardInfo{
+	padding-bottom: 20px;
+}
+
+.boardView hr{
+	border: 0;
+   	height: 2px;
+	background: #999999;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.boardContent{
+	min-height: 200px;
+	border: 1px solid #ccc;
+	text-align: justify;
+}
+
+.boardFile{
+	text-align: right;
+}
+
+.boardFile font{
+	font-weight: bold;
+}
+
+.boardViewrecomment button{
+	background: transparent;
+	border: none;
+}
+
+.boardViewrecomment{
+	margin-top: 20px;
+}
+
+.up{
+	margin-right: 20px;
+}
+
+.down{
+	margin-left: 20px;
+}
+
+.comment{
+	text-align: justify;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+.comment tr{
+	border: 1px solid #ccc;
+}
+
+.comment button{
+	background: transparent;
+	margin : 0;
+}
+
+.pageList a{
+	color:white;
+    padding:5px 10px 5px 10px;
+    display:inline-block;
+    border-radius: 10px;
+    transition:all 0.1s;
+}
+
+.pageList .currentPage{
+	pointer-events: none; /*이벤트를 막음*/
+	cursor: default; /*마우스 커서를 포인트에서 디폴트로 변경*/
+	background-color: #999999;
+}
+
+.pageList .otherPage{
+	background-color: #bcbcbc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

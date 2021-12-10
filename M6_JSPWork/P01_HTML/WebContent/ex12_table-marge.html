@@ -1,0 +1,46 @@
+
+<!-- ex12_table-marge.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 셀 합치기</title>
+</head>
+<body>
+<!-- 
+	# 셀 합치기
+	  - 테이블의 셀과 셀을 합칠 수 있습니다.
+	    > rowspan : 셀을 세로로 합칠 때 사용합니다. (밑으로)
+	      colspan : 셀을 가로로 합칠 때 사용합니다. (오른쪽으로)
+ -->
+ 	<h1> 셀 합치기</h1>
+ 	<br>
+ 	<table border="1" width="300">
+ 		<caption> 행 통합 테이블</caption>
+ 		<tr>
+ 			<th>1행</th><th>1행 1열</th>
+ 		</tr>
+ 		<tr>
+ 			<th rowspan="2">2행</th><th>2행 1열</th>
+ 		</tr>
+ 		<tr>
+ 			<th> 2행 2열 </th>
+ 		</tr>
+ 	</table>
+ 	<br>
+ 	
+ 	<table border = "1" width="300">
+ 		<caption> 열 통합 테이블</caption>
+ 		<tr>
+ 			<th>1열</th><th colspan="2">2열</th>
+ 		</tr>
+ 		<tr>
+ 			<td>2행 1열</td>
+ 			<td>2행 2열</td>
+ 			<td>2행 3열</td>
+ 		</tr>
+ 	</table>
+ 
+</body>
+</html>

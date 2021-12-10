@@ -1,0 +1,13 @@
+package com.myspring.pro29.ex01;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/test/*")
+public class TestController {
+	@RequestMapping("/hello")
+	public String hello() {
+		return "Hello REST!!"; // /hello로 요청 시 브라우저로 문자열을 전송한다.
+	}
+}
